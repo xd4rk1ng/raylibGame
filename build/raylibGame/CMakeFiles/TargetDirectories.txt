@@ -1,0 +1,3 @@
+/home/rmrosantos/Github/xd4rk1ng/raylibGame/build/raylibGame/CMakeFiles/Game.dir
+/home/rmrosantos/Github/xd4rk1ng/raylibGame/build/raylibGame/CMakeFiles/edit_cache.dir
+/home/rmrosantos/Github/xd4rk1ng/raylibGame/build/raylibGame/CMakeFiles/rebuild_cache.dir

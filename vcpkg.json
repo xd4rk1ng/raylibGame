@@ -1,0 +1,9 @@
+{
+    "name": "raylib-game",
+    "description": "2d RayLib Game",
+    "license": "MIT",
+    "dependencies": [
+        "raylib",
+        "glfw3"    
+    ]
+}
