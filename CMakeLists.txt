@@ -8,9 +8,13 @@ list(APPEND CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/vcpkg_installed/x64-linux")
 find_package(raylib CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 
+include_directories()
 file(GLOB SOURCES "src/*.cpp")
+#file(GLOB INCLUDES "include/*.h")
 
 add_executable(${TARGET_NAME} ${SOURCES})
+
+target_include_directories(${TARGET_NAME} PRIVATE include)
 
 target_link_libraries(${TARGET_NAME} PRIVATE raylib glfw)
 
