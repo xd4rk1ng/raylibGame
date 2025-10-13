@@ -9,7 +9,19 @@
             "binaryDir": "${sourceDir}/build/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_TOOLCHAIN_FILE": "/home/rmrosantos/Github/xd4rk1ng/raylibGame/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+            }
+        },
+        {
+            "name": "raylibGame-msvc",
+            "displayName": "Configure preset using toolchain file",
+            "description": "Sets MSVC generator, build and install directory",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake",
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
             }
         } 
