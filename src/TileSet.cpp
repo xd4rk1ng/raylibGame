@@ -24,11 +24,12 @@ Rectangle TileSet::getRectangle(int id)
     // To find the row/column of the tile in VRAM
     int column = id % m_tilesPerRow;
     int row = id / m_tilesPerRow;
+    
     Rectangle sourceRectangle = {
-        .x = column * m_tile.width,
-        .y = row * m_tile.height,
-        .width = m_tile.width,
-        .height = m_tile.height
+        .x = static_cast<float>(column * m_tile.width),
+        .y = static_cast<float>(row * m_tile.height),
+        .width = static_cast<float>(m_tile.width),
+        .height = static_cast<float>(m_tile.height)
     };
     return sourceRectangle;
 }

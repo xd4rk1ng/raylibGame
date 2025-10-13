@@ -38,7 +38,7 @@ bool Game::mapInit(){
                 }
                 
         }
-        
+        return 0;
 }
 
 // bool Game::LoadTextures()
