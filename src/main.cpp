@@ -4,7 +4,7 @@
 #include <raylib.h>
 
 #include "Game.h"
-#include "Snake.h"
+
 
 static const int screenWidth = 800;
 static const int screenHeight = 600;
@@ -22,7 +22,7 @@ int main(){
 
     while (!WindowShouldClose())
     {
-        snakeGame->update();
+        //snakeGame->update();
 
         BeginDrawing();
         ClearBackground(RAYWHITE);

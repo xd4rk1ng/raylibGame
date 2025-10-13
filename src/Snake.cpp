@@ -2,6 +2,7 @@
 
 Snake::Snake()
 {
-    this->head.texture = LoadTexture("assets/");
-    this->body[0].texture = 
+    return;
+    // this->body[0].texture = LoadTexture("assets/");
+    // this->body[0].texture = 
 }

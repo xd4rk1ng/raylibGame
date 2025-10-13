@@ -1,3 +1,6 @@
+#pragma once
+
+#include "TileSet.h"
 #include "Snake.h"
 #include "Fruit.h"
 
@@ -6,13 +9,22 @@ const int MAP_HEIGHT = 10;
 const int TILE_SIZE = 32;
 
 class Game{
-    static const int MAP_WIDTH = 10;
-    static const int MAP_HEIGHT = 10;
-    static const int TILE_SIZE = 32;
+    static const int MAP_WIDTH = 16;
+    static const int MAP_HEIGHT = 16;
+    static const int TILE_SIZE = 64;
+    enum PartId {
+        empty,
+        fruit,
+        head,
+        body,
+        corner // bends left, needs rotation to apply right
+    };
+
     private:
-        Texture2D map[MAP_WIDTH][MAP_HEIGHT];
-        Snake snake;
-        Fruit fruit;
+        int m_map[16][16];
+        TileSet m_tiles;
+        Snake m_snake;
+        Fruit m_fruit;
         // score and UI...
     public:
         Game();
@@ -21,6 +33,8 @@ class Game{
         ~Game();
 
     private:
-        void loadAssets();
-        void loadMap();
+        bool mapInit();
+        bool loadTextures();
+        bool loadAssets();
+        bool loadMap();
 };

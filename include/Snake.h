@@ -13,11 +13,11 @@ private:
     
     struct bodyPart
     {
-        Image texture /* = "SNAKE_HEAD_PATH"*/;
+        Texture2D texture /* = "SNAKE_PATH"*/;
         Vector2C coords;
         enum rotation{UP, RIGHT, LEFT, DOWN};
     } body[256];
-    enum 
+    
 
     public:
         Snake();
@@ -27,6 +27,6 @@ private:
         void draw();
     private:
         void loadHead();
-        void loadBody()
+        void loadBody();
         
 };
