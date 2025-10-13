@@ -8,10 +8,11 @@ project(raylibGame VERSION 0.1.0 LANGUAGES C CXX)
 if(WIN32)
     message(STATUS "Configuring for Windows")
     set(VCPKG_TRIPLET "x64-windows")
-    set(TARGET_NAME Game.exe)
-elseif(UNIX)
+    set(TARGET_NAME Game)
+    elseif(UNIX)
     message(STATUS "Configuring for Linux/Unix")
     set(VCPKG_TRIPLET "x64-linux")
+    set(TARGET_NAME Game)
 endif()
 
 
@@ -32,6 +33,13 @@ file(GLOB_RECURSE SOURCES "src/*.cpp")
 file(GLOB_RECURSE HEADERS "include/*.h")
 
 add_executable(${TARGET_NAME} ${SOURCES})
+# Tell CMake to copy the assets folder after every build
+add_custom_command(
+    TARGET ${TARGET_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${CMAKE_SOURCE_DIR}/assets
+            $<TARGET_FILE_DIR:${TARGET_NAME}>/assets
+)
 
 target_include_directories(${TARGET_NAME} PRIVATE include)
 
