@@ -21,8 +21,8 @@ class Game{
     };
 
     private:
-        int m_map[16][16];
-        TileSet m_tiles;
+        int m_gameMap[16][16];
+        TileSet m_atlas;
         Snake m_snake;
         Fruit m_fruit;
         // score and UI...
@@ -33,8 +33,7 @@ class Game{
         ~Game();
 
     private:
-        bool mapInit();
-        bool loadTextures();
-        bool loadAssets();
-        bool loadMap();
+        bool mapDraw(int textureID);
+        bool fruitDraw(int textureID);
+        bool snakeDraw(int headID, int bodyID, int turnID);
 };

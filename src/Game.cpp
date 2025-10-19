@@ -1,8 +1,8 @@
 #include "Game.h"
 
 Game::Game()
-        :m_tiles(64)
-        ,m_fruit(PartId::fruit, m_tiles)
+        :m_atlas(64)
+        ,m_fruit(PartId::fruit, m_atlas)
 {
         m_fruit.Move({.x = 5*64, .y = 5*64});
 }
@@ -18,36 +18,42 @@ Game::~Game()
 // }
 
 void Game::render(){
-        for (int i = 0; i < MAP_HEIGHT; i++)
-        {
-                for (int j = 0; j < MAP_WIDTH; j++)
-                {
-                        DrawTextureRec(m_tiles.getAtlasTexture(), m_tiles.getRectangle(m_map[i][j]), {.x = float(i * 64), .y = float(j * 64)}, WHITE);
-                }
-                
+        enum texture{
+                empty,
+                fruit,
+                snake_head,
+                snake_body,
+                snake_turn
         }
-        DrawTextureRec(m_tiles.getAtlasTexture(), m_fruit.getSourceRectangle(), m_fruit.getPosition(), WHITE);
+        
+        mapDraw(empty);
+        fruitDraw(fruit);
+        snakeDraw();
+
+        DrawTextureRec(m_atlas.getAtlasTexture(), m_fruit.getSourceRectangle(), m_fruit.getPosition(), WHITE);
 }
 
-bool Game::mapInit(){
+bool Game::mapDraw(int textureID){
+        Rectangle sourceRec = m_atlas.getSourceRectangle(textureID);
+        Vector2 position;
+
         for (int i = 0; i < MAP_HEIGHT; i++)
         {
                 for (int j = 0; j < MAP_WIDTH; j++)
                 {
-                        m_map[i][j] = 0;
+                        position.x = static_cast<float>(i * 64);
+                        position.y = static_cast<float>(j * 64);
+
+                        DrawTextureRec(m_atlas.getAtlasTexture(), sourceRec, position, WHITE);
                 }
-                
         }
         return 0;
 }
 
-// bool Game::LoadTextures()
-// {
+bool Game::fruitDraw(int textureID){
+        
+}
 
-// }
+bool Game::snakeDraw(int headID, int bodyID, int turnID){
 
-// bool Game::loadAssets()
-// {
-//     LoadTextures()
-// }
-// bool Game::loadMap();
+}

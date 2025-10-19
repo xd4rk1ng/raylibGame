@@ -19,6 +19,6 @@ class TileSet{
         ~TileSet();
 
         Texture2D getAtlasTexture();
-        Rectangle getRectangle(int id);
+        Rectangle getSourceRectangle(int id);
 
 };

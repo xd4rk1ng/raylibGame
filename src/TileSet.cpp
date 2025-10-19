@@ -19,7 +19,7 @@ Texture2D TileSet::getAtlasTexture()
     return m_atlasTexture;
 }
 
-Rectangle TileSet::getRectangle(int id)
+Rectangle TileSet::getSourceRectangle(int id)
 {
     // To find the row/column of the tile in VRAM
     int column = id % m_tilesPerRow;

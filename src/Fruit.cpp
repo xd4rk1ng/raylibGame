@@ -3,7 +3,7 @@
 Fruit::Fruit(int tileId, TileSet& tiles)
 {
     m_tileId = tileId;
-    m_sourceRectangle = tiles.getRectangle(m_tileId);
+    m_sourceRectangle = tiles.getSourceRectangle(m_tileId);
     m_position = {
         .x = 64,
         .y = 64
