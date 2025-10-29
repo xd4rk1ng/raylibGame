@@ -19,14 +19,14 @@ Game::~Game()
 
 void Game::render(){
         enum texture{
-                empty,
+                map,
                 fruit,
                 snake_head,
                 snake_body,
                 snake_turn
         }
         
-        mapDraw(empty);
+        mapDraw(map);
         fruitDraw(fruit);
         snakeDraw();
 
@@ -51,7 +51,12 @@ bool Game::mapDraw(int textureID){
 }
 
 bool Game::fruitDraw(int textureID){
-        
+        Rectangle sourceRec = m_atlas.getSourceRectangle(textureID);
+        Vector2 position;
+
+        for(Vector2 tilePos : Fruit.)
+
+        for ()
 }
 
 bool Game::snakeDraw(int headID, int bodyID, int turnID){
