@@ -18,7 +18,6 @@ int main(){
     SetTargetFPS(60);
     
     Game* snakeGame = new Game();
-    //Snake TheSnake();
 
     while (!WindowShouldClose())
     {
@@ -26,18 +25,16 @@ int main(){
 
         BeginDrawing();
         ClearBackground(RAYWHITE);
+        snakeGame->update();
         snakeGame->render();  
+        
         //DrawText("Move with arrows!", 10, 10, 20, BLACK);
-
         DrawFPS(10,40);
         EndDrawing();
     }
-
     delete snakeGame;
-
     CloseWindow();
 
-
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Hello Console!" << std::endl;
     return 0;
 }

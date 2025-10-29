@@ -4,23 +4,22 @@
 #include "Snake.h"
 #include "Fruit.h"
 
-const int MAP_WIDTH = 10;
-const int MAP_HEIGHT = 10;
-const int TILE_SIZE = 32;
-
 class Game{
-    static const int MAP_WIDTH = 16;
-    static const int MAP_HEIGHT = 16;
-    static const int TILE_SIZE = 64;
-    enum PartId {
-        empty,
-        fruit,
-        head,
-        body,
-        corner // bends left, needs rotation to apply right
-    };
-
+    public:
+        static const int MAP_WIDTH = 16;
+        static const int MAP_HEIGHT = 16;
+        static const int TILE_SIZE = 64;
+        static const int MAX_NO_TEXTURES = 3;
     private:
+
+        enum PartId {
+            empty,
+            fruit,
+            head,
+            body,
+            corner // bends left, needs rotation to apply right
+        };
+
         int m_gameMap[16][16];
         TileSet m_atlas;
         Snake m_snake;
