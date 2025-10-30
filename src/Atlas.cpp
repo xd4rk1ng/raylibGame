@@ -11,7 +11,7 @@ std::unique_ptr<Atlas<rows,cols>>& Atlas<rows, cols>::getInstance()
 }
 
 template <uint8_t rows, uint8_t cols>
-Rectangle Atlas<rows,cols>::getSrcRectangle(srcRectangle id)
+constexpr Rectangle Atlas<rows,cols>::getSrcRectangle(recId id)
 {
     constexpr int column = id % cols;
     constexpr int row = id / rows;
@@ -27,9 +27,7 @@ Rectangle Atlas<rows,cols>::getSrcRectangle(srcRectangle id)
 
 template <uint8_t rows, uint8_t cols>
 Atlas<rows,cols>::Atlas()
-    : m_spritePath("assets/Game.png"),
-    e_srcRec(DEFAULT),
-    e_rotation(UP)
+    : m_spritePath("assets/Game.png")
 {
     m_baseTexture = LoadTexture(m_spritePath);
 }

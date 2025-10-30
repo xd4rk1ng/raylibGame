@@ -15,12 +15,13 @@ int main(){
     std::unique_ptr<Game> snakeGame = std::move(Game::getInstance());
     while (!WindowShouldClose())
     {
+        snakeGame->update();
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        snakeGame->update();
         
         snakeGame->draw();
         DrawFPS(10,40);
+        
         EndDrawing();
     }
     CloseWindow();

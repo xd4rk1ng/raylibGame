@@ -10,7 +10,7 @@ class Atlas
 {
     static constexpr uint8_t s_SIDE_LENGHT = 64; 
     public:
-        enum srcRectangle
+        enum recId
         {
             BACKGROUND,
             FRUIT,
@@ -18,22 +18,12 @@ class Atlas
             SNAKE_BODY,
             DEFAULT = BACKGROUND
         };
-        
-        enum rotation
-        {
-            UP = 0,
-            RIGHT = 1,
-            DOWN = 2,
-            LEFT = 3,
-        };
         static std::unique_ptr<Atlas<rows,cols>>& getInstance();
-        Rectangle getSrcRectangle(srcRectangle id);
+        constexpr Rectangle getSrcRectangle(recId id);
     private:
         static std::unique_ptr<Atlas> s_instance;
         const char* m_spritePath = "assets/Game.png";
         Texture2D m_baseTexture;
-        srcRectangle e_srcRec;
-        rotation e_rotation;
 
         Atlas();
         ~Atlas();

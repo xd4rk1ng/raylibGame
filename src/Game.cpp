@@ -16,14 +16,11 @@ bool Game::update()
 
 bool Game::draw()
 {
+
     return true;
 }
 
 Game::Game()
 {
-
-}
-Game::~Game()
-{
-
+    m_gameMap = GameMap();
 }
