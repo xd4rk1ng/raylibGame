@@ -95,5 +95,9 @@
         "xlocmon": "cpp",
         "xlocnum": "cpp",
         "xloctime": "cpp"
-    }
+    },
+    "editor.fontFamily": "Monaspace,  'Monaspace Neon Var ExtraBold', 'Monaspace Neon Var', 'Monaspace Neon', monospace",
+    "cmake.generator": "Visual Studio 17 2022",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureOnOpen": true
 }
