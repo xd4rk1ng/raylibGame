@@ -1,6 +1,7 @@
 #include <memory>
 #include <raylib.h>
 #include "GameMap.h"
+#include "Fruit.h"
 class Game
 {
     

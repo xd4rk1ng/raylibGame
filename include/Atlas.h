@@ -1,3 +1,4 @@
+#pragma once
 #include <memory>
 #include <raylib.h>
 
@@ -5,10 +6,12 @@
 // without having to assign them on creation
 // this helps with singleton use
 // -- also because i wanted to
-template <uint8_t rows, uint8_t cols>
 class Atlas
 {
-    static constexpr uint8_t s_SIDE_LENGHT = 64; 
+    static constexpr uint8_t SIDE_LENGHT = 64; 
+    static constexpr uint8_t ROWS = 1;
+    static constexpr uint8_t COLS = 5;
+
     public:
         enum recId
         {
@@ -18,14 +21,11 @@ class Atlas
             SNAKE_BODY,
             DEFAULT = BACKGROUND
         };
-        static std::unique_ptr<Atlas<rows,cols>>& getInstance();
         constexpr Rectangle getSrcRectangle(recId id);
+        Atlas();
+        ~Atlas();
     private:
-        static std::unique_ptr<Atlas> s_instance;
         const char* m_spritePath = "assets/Game.png";
         Texture2D m_baseTexture;
 
-        Atlas();
-        ~Atlas();
-    
 };

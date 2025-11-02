@@ -2,14 +2,14 @@
 #include <memory>
 #include <stdint.h>
 #include <raylib.h>
-#include "Game.h"
 
-static constexpr int screenWidth = 800;
-static constexpr int screenHeight = 600;
+static constexpr int SCREENWIDTH = 800;
+static constexpr int SCREENHEIGHT = 600;
+#include "Game.h"
 
 int main(){
 
-    InitWindow(screenWidth, screenHeight, "Raylib Window");
+    InitWindow(SCREENWIDTH, SCREENHEIGHT, "Raylib Window");
     SetTargetFPS(60);
     
     std::unique_ptr<Game> snakeGame = std::move(Game::getInstance());

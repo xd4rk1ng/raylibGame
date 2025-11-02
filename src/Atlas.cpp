@@ -1,39 +1,26 @@
 #include "Atlas.h"
 
-template <uint8_t rows, uint8_t cols>
-std::unique_ptr<Atlas<rows,cols>>& Atlas<rows, cols>::getInstance()
+constexpr Rectangle Atlas::getSrcRectangle(recId id)
 {
-    if(s_instance == nullptr)
-    {
-        s_instance = std::make_unique<Atlas>();
-    }
-    return s_instance;
-}
-
-template <uint8_t rows, uint8_t cols>
-constexpr Rectangle Atlas<rows,cols>::getSrcRectangle(recId id)
-{
-    constexpr int column = id % cols;
-    constexpr int row = id / rows;
+    const int column = id % COLS;
+    const int row = id / ROWS;
     
     Rectangle sourceRectangle = {
-        .x = static_cast<float>(column * s_SIDE_LENGHT),
-        .y = static_cast<float>(row * s_SIDE_LENGHT),
-        .width = static_cast<float>(s_SIDE_LENGHT),
-        .height = static_cast<float>(s_SIDE_LENGHT)
+        .x = static_cast<float>(column * SIDE_LENGHT),
+        .y = static_cast<float>(row * SIDE_LENGHT),
+        .width = static_cast<float>(SIDE_LENGHT),
+        .height = static_cast<float>(SIDE_LENGHT)
     };
     return sourceRectangle;
 }
 
-template <uint8_t rows, uint8_t cols>
-Atlas<rows,cols>::Atlas()
+Atlas::Atlas()
     : m_spritePath("assets/Game.png")
 {
     m_baseTexture = LoadTexture(m_spritePath);
 }
 
-template <uint8_t rows, uint8_t cols>
-Atlas<rows,cols>::~Atlas<rows,cols>()
+Atlas::~Atlas()
 {
     UnloadTexture(m_baseTexture);
 }
