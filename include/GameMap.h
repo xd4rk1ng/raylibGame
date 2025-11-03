@@ -1,10 +1,11 @@
 #include "Atlas.h"
+#include "Vec2.h"
 #include <array>
 class GameMap
 {
-    static constexpr uint8_t SIZE = 16;
     
     public:
+        static constexpr uint8_t SIZE = 16;
         GameMap();
         ~GameMap();
         

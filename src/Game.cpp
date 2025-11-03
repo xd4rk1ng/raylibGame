@@ -9,18 +9,27 @@ std::unique_ptr<Game>& Game::getInstance()
     return s_instance;
 }
 
+GameMap& Game::getMap()
+{ 
+    return m_gameMap;
+}
+
 bool Game::update()
 {
+    m_snake.update();
+    m_fruit.update();
     return true;    
 }
 
 bool Game::draw()
 {
-
+    m_gameMap.draw();
     return true;
 }
 
 Game::Game()
 {
+    m_snake = Snake();
+    m_fruit = Fruit();
     m_gameMap = GameMap();
 }

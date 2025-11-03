@@ -3,7 +3,6 @@
 GameMap::GameMap()
 {
     clear();
-
 }
 
 void GameMap::clear()

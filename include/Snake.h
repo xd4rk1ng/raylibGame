@@ -1,12 +1,13 @@
 #pragma once
-class Fruit{
+
+class Snake
+{
     Vec2 m_pos;
     
     public:
-        Fruit();
-        Fruit(float x, float y);
-        ~Fruit();
-        uint8_t getId();
+        Snake();
+        Snake(float x, float y);
+        ~Snake();
         Vec2 getPos();
         void update();
     private:

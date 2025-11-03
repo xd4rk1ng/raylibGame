@@ -11,6 +11,12 @@ int main(){
 
     InitWindow(SCREENWIDTH, SCREENHEIGHT, "Raylib Window");
     SetTargetFPS(60);
+
+    Vec2 v1 = Vec2(1, 2);
+    Vec2 v2 = Vec2(1, 2);
+    Vec2 vR = v1 + v2;
+    if(v1 == v2)
+        std::cout << "\n" << "[DEBUG]: v1 == v2" << "\n";
     
     std::unique_ptr<Game> snakeGame = std::move(Game::getInstance());
     while (!WindowShouldClose())
