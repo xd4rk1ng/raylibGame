@@ -10,9 +10,11 @@ class Game
         static std::unique_ptr<Game>& getInstance();
         GameMap& getMap();
         Fruit& getFruit();
+        Snake& getSnake();
         bool update();
         bool draw();
         ~Game();
+        void gameOver();
     private:
         static std::unique_ptr<Game> s_instance;
         GameMap m_gameMap;

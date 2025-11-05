@@ -8,11 +8,11 @@
 // -- also because i wanted to
 class Atlas
 {
-    static constexpr uint8_t SIDE_LENGHT = 64; 
     static constexpr uint8_t ROWS = 1;
     static constexpr uint8_t COLS = 5;
-
+    
     public:
+    static constexpr uint8_t SIDE_LENGHT = 64; 
         enum recId
         {
             BACKGROUND,
@@ -21,7 +21,8 @@ class Atlas
             SNAKE_BODY,
             DEFAULT = BACKGROUND
         };
-        constexpr Rectangle getSrcRectangle(recId id);
+        Rectangle getSrcRectangle(recId id);
+        Texture2D getTexture();
         Atlas();
         ~Atlas();
     private:

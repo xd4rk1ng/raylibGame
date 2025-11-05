@@ -6,7 +6,6 @@ class Fruit{
         Fruit();
         Fruit(float x, float y);
         ~Fruit();
-        uint8_t getId();
         Vec2 getPos();
         void update();
     private:

@@ -1,5 +1,5 @@
 #include "Vec2.h"
-Vec2::Vec2(float x = 0, float y = 0)
+Vec2::Vec2(float x, float y)
     : coords{x, y}{}
 
 Vec2 Vec2::operator+(const Vec2& other) const
@@ -22,5 +22,5 @@ Vec2& Vec2::operator-=(const Vec2& other)
     return *this;
 }
 
-bool Vec2::operator==(const Vec2& other)
+bool Vec2::operator==(const Vec2& other) const noexcept
 { return (coords.x == other.coords.x && coords.y == other.coords.y); }

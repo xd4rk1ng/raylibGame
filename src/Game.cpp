@@ -14,6 +14,16 @@ GameMap& Game::getMap()
     return m_gameMap;
 }
 
+Snake& Game::getSnake()
+{
+    return m_snake;
+}
+
+Fruit& Game::getFruit()
+{
+    return m_fruit;
+}
+
 bool Game::update()
 {
     m_snake.update();
@@ -32,4 +42,11 @@ Game::Game()
     m_snake = Snake();
     m_fruit = Fruit();
     m_gameMap = GameMap();
+}
+Game::~Game() = default;
+
+void Game::gameOver()
+{
+    DrawText("Game Over!", GetScreenWidth()/2, GetScreenHeight()/2, 20, RED);
+    IsKeyDown(KEY_ENTER);
 }

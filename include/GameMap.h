@@ -1,13 +1,14 @@
 #include "Atlas.h"
 #include "Vec2.h"
 #include <array>
+#include <raylib.h>
 class GameMap
 {
     
     public:
         static constexpr uint8_t SIZE = 16;
         GameMap();
-        ~GameMap();
+        ~GameMap() = default;
         
         struct State{
             Atlas::recId id;

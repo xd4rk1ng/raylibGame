@@ -1,6 +1,6 @@
 #include "Atlas.h"
-
-constexpr Rectangle Atlas::getSrcRectangle(recId id)
+#include "raylib.h"
+Rectangle Atlas::getSrcRectangle(recId id)
 {
     const int column = id % COLS;
     const int row = id / ROWS;
@@ -12,6 +12,11 @@ constexpr Rectangle Atlas::getSrcRectangle(recId id)
         .height = static_cast<float>(SIDE_LENGHT)
     };
     return sourceRectangle;
+}
+
+Texture2D Atlas::getTexture()
+{
+    return m_baseTexture;
 }
 
 Atlas::Atlas()
