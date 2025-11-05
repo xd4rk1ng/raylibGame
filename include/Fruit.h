@@ -3,8 +3,7 @@ class Fruit{
     Vec2 m_pos;
     
     public:
-        Fruit();
-        Fruit(float x, float y);
+        Fruit(float x=0, float y=0);
         ~Fruit();
         Vec2 getPos();
         void update();

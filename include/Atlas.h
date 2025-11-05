@@ -26,7 +26,7 @@ class Atlas
         Atlas();
         ~Atlas();
     private:
-        const char* m_spritePath = "assets/Game.png";
+        const char* m_spritePath;
         Texture2D m_baseTexture;
 
 };

@@ -38,11 +38,11 @@ bool Game::draw()
 }
 
 Game::Game()
-{
-    m_snake = Snake();
-    m_fruit = Fruit();
-    m_gameMap = GameMap();
-}
+    :m_gameMap(),
+    m_snake(),
+    m_fruit() 
+{}
+
 Game::~Game() = default;
 
 void Game::gameOver()

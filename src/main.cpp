@@ -18,14 +18,14 @@ int main(){
     if(v1 == v2)
         std::cout << "\n" << "[DEBUG]: v1 == v2" << "\n";
     
-    std::unique_ptr<Game> snakeGame = std::move(Game::getInstance());
+    Game& snakeGame = *Game::getInstance();
     while (!WindowShouldClose())
     {
-        snakeGame->update();
+        snakeGame.update();
         BeginDrawing();
         ClearBackground(RAYWHITE);
         
-        snakeGame->draw();
+        snakeGame.draw();
         DrawFPS(10,40);
         
         EndDrawing();

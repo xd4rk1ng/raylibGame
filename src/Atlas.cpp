@@ -20,7 +20,7 @@ Texture2D Atlas::getTexture()
 }
 
 Atlas::Atlas()
-    : m_spritePath("assets/Game.png")
+    : m_spritePath((char*)"assets/Game.png")
 {
     m_baseTexture = LoadTexture(m_spritePath);
 }

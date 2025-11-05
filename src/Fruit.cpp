@@ -3,11 +3,6 @@
 #include "Fruit.h"
 
 
-Fruit::Fruit()
-{
-    respawn();
-}
-
 Fruit::Fruit(float x, float y)
 {
     Vec2 m_pos = Vec2(x, y);

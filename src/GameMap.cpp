@@ -2,6 +2,7 @@
 #include <raylib.h>
 
 GameMap::GameMap()
+    :m_atlas()
 {
     clear();
 }
@@ -12,7 +13,10 @@ void GameMap::clear()
     {
         for (size_t j = 0; j < SIZE; j++)
         {
-            m_grid[i][j] = State{ .id = Atlas::DEFAULT, .rotated = State::DEFAULT };
+            m_grid[i][j] = State{ 
+                .id = Atlas::DEFAULT, 
+                .rotated = State::DEFAULT 
+            };
         }
     }
 }
@@ -28,10 +32,31 @@ void GameMap::draw()
     {
         for (size_t j = 0; j < SIZE; j++)
         {
-            Rectangle sourceRec = m_atlas.getSrcRectangle(m_grid[i][j].id);
-            DrawTexturePro(m_atlas.getTexture(), sourceRec, Rectangle{(float)i,(float)j, (float)m_atlas.SIDE_LENGHT, Atlas::SIDE_LENGHT}, {m_atlas.SIDE_LENGHT/2.0f, m_atlas.SIDE_LENGHT/2.0f }, m_grid[i][j].rotated, WHITE);
+
+            Rectangle srcRec = m_atlas.getSrcRectangle(m_grid[i][j].id);
+            
+            // Position in pixels
+            Rectangle destRec = {
+                i * (float)m_atlas.SIDE_LENGHT,
+                j * (float)m_atlas.SIDE_LENGHT,
+                (float)m_atlas.SIDE_LENGHT,
+                (float)m_atlas.SIDE_LENGHT
+            };
+
+            Vector2 origin = {
+                m_atlas.SIDE_LENGHT / 2.0f,
+                m_atlas.SIDE_LENGHT / 2.0f
+            };
+
+
+            DrawTexturePro(
+                m_atlas.getTexture(),
+                srcRec,
+                destRec,
+                origin,
+                State::UP,
+                WHITE
+            );
         }
-        
-        /* code */
     }
 }
