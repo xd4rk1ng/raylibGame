@@ -1,32 +1,23 @@
-#include <stdint.h>
-#include <raylib.h>
-
-typedef struct Vector2C{
-    unsigned char x, y;
-};
-
-
-class Snake {
+#pragma once
+#include "Vec2.h"
+#include <vector>
+class Snake
+{
+    Vec2 m_pos;
+    std::vector<Vec2> m_bodyPos;
+    enum dir{
+        UP,
+        DOWN,
+        RIGHT,
+        LEFT
+    };
+    static dir s_currDir;
     
-private:
-    unsigned char size; // length span of snake: 0 - 255 body parts (16x16 pxl = 256 positions)
-    
-    struct bodyPart
-    {
-        Texture2D texture /* = "SNAKE_PATH"*/;
-        Vector2C coords;
-        enum rotation{UP, RIGHT, LEFT, DOWN};
-    } body[256];
-    
-
     public:
-        Snake();
-        void expandSnake();
-        
+        Snake(float x = 7, float y = 7);
+        ~Snake();
+        Vec2 getPos();
         void update();
-        void draw();
     private:
-        void loadHead();
-        void loadBody();
-        
+        Vec2 input();
 };

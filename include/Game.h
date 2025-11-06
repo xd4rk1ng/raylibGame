@@ -1,8 +1,9 @@
-#pragma once
-
-#include "TileSet.h"
+#include <memory>
+#include <raylib.h>
+#include "GameMap.h"
 #include "Snake.h"
 #include "Fruit.h"
+<<<<<<< HEAD
 
 class Game{
     public:
@@ -22,17 +23,24 @@ class Game{
 
         int m_gameMap[16][16];
         TileSet m_atlas;
+=======
+class Game
+{
+    
+    public:
+        static std::unique_ptr<Game>& getInstance();
+        GameMap& getMap();
+        Fruit& getFruit();
+        Snake& getSnake();
+        bool update();
+        bool draw();
+        ~Game();
+        void gameOver();
+    private:
+        static std::unique_ptr<Game> s_instance;
+        GameMap m_gameMap;
+>>>>>>> refactor_1
         Snake m_snake;
         Fruit m_fruit;
-        // score and UI...
-    public:
         Game();
-        void update();
-        void render();
-        ~Game();
-
-    private:
-        bool mapDraw(int textureID);
-        bool fruitDraw(int textureID);
-        bool snakeDraw(int headID, int bodyID, int turnID);
 };

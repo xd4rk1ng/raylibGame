@@ -1,29 +1,35 @@
+#include "Game.h"
+#include "Random.h"
 #include "Fruit.h"
 
-Fruit::Fruit(int tileId, TileSet& tiles)
-{
-    m_tileId = tileId;
-    m_sourceRectangle = tiles.getSourceRectangle(m_tileId);
-    m_position = {
-        .x = 64,
-        .y = 64
-    };
-}
 
-Rectangle Fruit::getSourceRectangle()
+Fruit::Fruit(float x, float y)
 {
-    return m_sourceRectangle;
+    Vec2 m_pos = Vec2(x, y);
 }
+Fruit::~Fruit() = default;
+Vec2 Fruit::getPos() { return m_pos;}
 
-Vector2 Fruit::getPosition()
-{
-    return m_position;
+void Fruit::update() 
+{ 
+    if(Game::getInstance()->getSnake().getPos() == m_pos)
+    {
+        respawn();
+        Game::getInstance()->getMap().replace(m_pos.coords, GameMap::State{.id = Atlas::FRUIT, .rotated = GameMap::State::DEFAULT});
+    }
 }
-
-void Fruit::Move(Vector2 newPos)
+/*
+    This method is meant to run AFTER Snake has updated it's position.
+    It checks if Snake is sitting on the Fruit tile, if so, respawns the fruit.
+*/
+void Fruit::respawn()
 {
-    m_position = {
-        .x = newPos.x,
-        .y = newPos.y
-    };
+    Vec2 snakePos = Game::getInstance()->getSnake().getPos();
+    
+    do
+    {
+        uint8_t x = rnd::Int(0, GameMap::SIZE);
+        uint8_t y = rnd::Int(0, GameMap::SIZE);
+        m_pos = Vec2(x, y);
+    } while (m_pos == snakePos);
 }
